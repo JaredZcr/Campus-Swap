@@ -1,0 +1,39 @@
+.sell-overlay {
+  position: fixed; inset: 0; background: rgba(0,0,0,0.5);
+  display: flex; align-items: center; justify-content: center; z-index: 1000;
+}
+.sell-modal {
+  background: white; border-radius: 16px; width: 500px; max-width: 95vw;
+  max-height: 90vh; overflow-y: auto;
+}
+.sell-header {
+  display: flex; align-items: center; justify-content: space-between;
+  padding: 24px 24px 16px; border-bottom: 1px solid #e5e7eb;
+}
+.sell-header h2 { font-size: 20px; font-weight: 700; color: #111827; margin: 0; }
+.sell-close { background: none; border: none; cursor: pointer; color: #6b7280; padding: 4px; }
+.sell-form { padding: 20px 24px 24px; display: flex; flex-direction: column; gap: 8px; }
+.sell-form label { font-size: 14px; font-weight: 600; color: #374151; }
+.sell-input {
+  padding: 10px 14px; border: 1.5px solid #e5e7eb; border-radius: 8px;
+  font-size: 14px; outline: none; width: 100%; box-sizing: border-box;
+  transition: border-color 0.2s; font-family: inherit;
+}
+.sell-input:focus { border-color: #6366f1; }
+.sell-textarea { resize: vertical; min-height: 80px; }
+.sell-upload { margin: 4px 0; }
+.sell-upload-btn {
+  display: inline-flex; align-items: center; gap: 8px; padding: 10px 16px;
+  background: #f3f4f6; border: 2px dashed #d1d5db; border-radius: 8px;
+  cursor: pointer; font-size: 14px; color: #6b7280; transition: all 0.2s;
+}
+.sell-upload-btn:hover { border-color: #6366f1; color: #6366f1; }
+.sell-preview { width: 120px; height: 90px; object-fit: cover; border-radius: 8px; border: 1px solid #e5e7eb; }
+.sell-error { color: #ef4444; font-size: 13px; margin: 0; }
+.sell-submit {
+  padding: 12px; background: #6366f1; color: white; border: none;
+  border-radius: 8px; font-size: 15px; font-weight: 600; cursor: pointer;
+  transition: background 0.2s; margin-top: 8px;
+}
+.sell-submit:hover:not(:disabled) { background: #4f46e5; }
+.sell-submit:disabled { opacity: 0.6; cursor: not-allowed; }

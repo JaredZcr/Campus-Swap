@@ -1,0 +1,115 @@
+.address-overlay {
+  position: fixed;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.5);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 1000;
+  padding: 16px;
+}
+
+.address-modal {
+  width: 100%;
+  max-width: 520px;
+  background: white;
+  border: 1px solid var(--border);
+  border-radius: 16px;
+  box-shadow: var(--shadow-lg);
+  overflow: hidden;
+}
+
+.address-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 14px 16px;
+  border-bottom: 1px solid var(--border);
+}
+
+.address-header h2 {
+  margin: 0;
+  font-size: 18px;
+  font-weight: 800;
+  color: var(--text-primary);
+}
+
+.address-close {
+  background: transparent;
+  border: 0;
+  padding: 8px;
+  border-radius: 10px;
+}
+
+.address-close:hover {
+  background: #f3f4f6;
+}
+
+.address-form {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  padding: 16px;
+}
+
+.address-form label {
+  font-size: 12px;
+  font-weight: 700;
+  color: var(--text-secondary);
+}
+
+.address-input {
+  padding: 10px 12px;
+  border: 1px solid var(--border);
+  border-radius: 12px;
+  background: white;
+  font-size: 14px;
+}
+
+.address-textarea {
+  min-height: 80px;
+  resize: vertical;
+}
+
+.address-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 10px;
+}
+
+.address-default {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  margin-top: 6px;
+  color: var(--text-primary);
+  font-size: 13px;
+  font-weight: 600;
+}
+
+.address-error {
+  color: #ef4444;
+  font-size: 13px;
+  font-weight: 600;
+}
+
+.address-submit {
+  background: var(--primary);
+  color: white;
+  border: 0;
+  padding: 10px 14px;
+  border-radius: 12px;
+  font-weight: 800;
+  margin-top: 6px;
+}
+
+.address-submit:disabled {
+  opacity: 0.7;
+  cursor: not-allowed;
+}
+
+@media (max-width: 520px) {
+  .address-grid {
+    grid-template-columns: 1fr;
+  }
+}

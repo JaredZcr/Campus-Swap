@@ -1,0 +1,339 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap');
+
+#root {
+  width: 100%;
+  margin: 0;
+  padding: 0;
+}
+
+:root {
+  --primary: #2563eb;  
+  --primary-dark: #1d4ed8; 
+  --secondary: #F59E0B;
+  --accent: #10B981;
+  --bg-main: #FAFAFA;
+  --bg-card: #FFFFFF;
+  --text-primary: #1F2937;
+  --text-secondary: #6B7280;
+  --border: #E5E7EB;
+  --shadow-sm: 0 1px 3px rgba(0, 0, 0, 0.05);
+  --shadow-md: 0 4px 12px rgba(0, 0, 0, 0.08);
+  --shadow-lg: 0 10px 30px rgba(0, 0, 0, 0.12);
+}
+
+/* ========== ADD EVERYTHING BELOW THIS LINE ========== */
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+  background: var(--bg-main);
+  color: var(--text-primary);
+  line-height: 1.6;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+/* ========== CATEGORIES ========== */
+.categories {
+  max-width: 1400px;
+  margin: 0 auto;
+  padding: 2rem 2rem;
+  display: flex;
+  gap: 1rem;
+  overflow-x: auto;
+  scrollbar-width: none;
+}
+
+.categories::-webkit-scrollbar {
+  display: none;
+}
+
+.category-btn {
+  padding: 0.75rem 1.5rem;
+  border: 2px solid var(--border);
+  background: var(--bg-card);
+  border-radius: 12px;
+  cursor: pointer;
+  font-weight: 500;
+  font-size: 0.95rem;
+  transition: all 0.2s;
+  white-space: nowrap;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  font-family: 'DM Sans', sans-serif;
+}
+
+.category-btn:hover {
+  border-color: var(--primary);
+  background: white;
+  transform: translateY(-2px);
+  box-shadow: var(--shadow-md);
+}
+
+.category-btn.active {
+  background: var(--primary);
+  color: white;
+  border-color: var(--primary);
+}
+
+/* ========== FILTERS ========== */
+.filters {
+  max-width: 1400px;
+  margin: 0 auto;
+  padding: 0 2rem 2rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 2rem;
+}
+
+.price-filter {
+  display: flex;
+  gap: 1rem;
+  align-items: center;
+}
+
+.price-filter label {
+  font-weight: 500;
+  font-size: 0.95rem;
+  color: var(--text-secondary);
+}
+
+.price-input {
+  padding: 0.5rem 0.75rem;
+  border: 2px solid var(--border);
+  border-radius: 8px;
+  width: 100px;
+  font-size: 0.9rem;
+  font-family: 'DM Sans', sans-serif;
+}
+
+.sort-dropdown {
+  padding: 0.75rem 1.25rem;
+  border: 2px solid var(--border);
+  border-radius: 12px;
+  background: white;
+  font-weight: 500;
+  font-size: 0.95rem;
+  cursor: pointer;
+  font-family: 'DM Sans', sans-serif;
+}
+
+/* ========== LISTINGS ========== */
+.listings-section {
+  max-width: 1400px;
+  margin: 0 auto;
+  padding: 2rem 2rem 4rem;
+}
+
+.section-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 2rem;
+}
+
+.section-title {
+  font-family: 'Sora', sans-serif;
+  font-size: 1.75rem;
+  font-weight: 700;
+}
+
+.results-count {
+  color: var(--text-secondary);
+  font-size: 0.95rem;
+}
+
+.listings-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+  gap: 1.5rem;  /* This reduce the gap btw */
+}
+
+.listing-card {
+  background: var(--bg-card);
+  border-radius: 16px;
+  overflow: hidden;
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  cursor: pointer;
+  border: 2px solid transparent;
+  animation: fadeInUp 0.5s ease-out;
+  animation-fill-mode: both;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.08); 
+}
+
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.listing-card:nth-child(1) { animation-delay: 0.05s; }
+.listing-card:nth-child(2) { animation-delay: 0.1s; }
+.listing-card:nth-child(3) { animation-delay: 0.15s; }
+
+.listing-card:hover {
+  transform: translateY(-8px);
+  box-shadow: var(--shadow-lg);
+  border-color: var(--primary);
+  box-shadow: 0 12px 24px rgba(0, 0, 0, 0.12);
+}
+
+.listing-card:hover .listing-image-container::after {
+  background: rgba(0, 0, 0, 0.05);
+}
+
+.listing-image-container {
+  position: relative;
+  width: 100%;
+  height: 240px;
+  overflow: hidden;
+}
+
+.listing-image-container::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: rgba(0, 0, 0, 0);
+  transition: all 0.3s;
+  pointer-events: none;
+}
+
+.listing-image {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.condition-badge {
+  position: absolute;
+  top: 1rem;
+  right: 1rem;
+  background: white;
+  padding: 0.375rem 0.875rem;
+  border-radius: 8px;
+  font-size: 0.8rem;
+  font-weight: 600;
+  box-shadow: var(--shadow-md);
+}
+
+.listing-content {
+  padding: 1.5rem;
+}
+
+.listing-title {
+  font-weight: 700;
+  font-size: 1.125rem;
+  margin-bottom: 0.5rem;
+  color: var(--text-primary);
+}
+
+.listing-price {
+  font-family: 'Sora', sans-serif;
+  font-size: 1.75rem;
+  font-weight: 700;
+  color: var(--primary);
+  margin-bottom: 1rem;
+}
+
+.listings-section {
+  padding: 3rem 2rem 4rem; 
+}
+
+.listings-grid {
+  gap: 1.75rem;  
+}
+
+.listing-meta {
+  display: flex;
+  align-items: center;
+  gap: 1.5rem;
+  padding-top: 1rem;
+  border-top: 1px solid var(--border);
+}
+
+.seller-info {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  flex: 1;
+}
+
+.seller-avatar {
+  width: 32px;
+  height: 32px;
+  border-radius: 50%;
+}
+
+.seller-name {
+  font-size: 0.9rem;
+  font-weight: 500;
+}
+
+.rating {
+  display: flex;
+  align-items: center;
+  gap: 0.25rem;
+  font-size: 0.9rem;
+  font-weight: 600;
+  color: var(--secondary);
+}
+
+.listing-footer {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  font-size: 0.85rem;
+  color: var(--text-secondary);
+  margin-top: 0.75rem;
+}
+
+.location, .time {
+  display: flex;
+  align-items: center;
+  gap: 0.25rem;
+}
+
+/* ========== RESPONSIVE ========== */
+@media (max-width: 768px) {
+  .filters {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+  
+  .listings-grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+/* ========== Font Family ========== */
+/* Update all font-family references */
+.hero__title,
+.section-title,
+.listing-price {
+  font-family: 'Inter', sans-serif;
+}
+
+.category-btn,
+.price-input,
+.sort-dropdown {
+  font-family: 'Inter', sans-serif;
+}
+
+/* Force navbar to use Inter font */
+nav,
+nav * {
+  font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif !important;
+}
+
