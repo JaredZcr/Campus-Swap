@@ -1,0 +1,28 @@
+spring:
+  datasource:
+    url: ${DB_URL:jdbc:mysql://localhost:3306/db_school_trade?characterEncoding=UTF-8&useUnicode=true&serverTimezone=UTC&allowPublicKeyRetrieval=true&useSSL=false}
+    username: ${DB_USER:root}
+    password: ${DB_PASSWORD:Zcr20021226168}
+    driver-class-name: com.mysql.cj.jdbc.Driver
+
+  servlet:
+    multipart:
+      enabled: true
+      max-file-size: 200MB
+      max-request-size: 200MB
+
+  jackson:
+    time-zone: GMT+8
+    date-format: yyyy-MM-dd HH:mm:ss
+
+# Backend base URL used when returning image URLs after upload.
+baseUrl: ${BASE_URL:http://localhost:8080}
+
+
+mybatis:
+  type-aliases-package: com.chengrui.st.entity
+  mapper-locations: classpath:mapper/*.xml
+
+# Upload directory for images/files (relative by default, can override with env var UPLOAD_DIR)
+app:
+  upload-dir: ${UPLOAD_DIR:uploads}

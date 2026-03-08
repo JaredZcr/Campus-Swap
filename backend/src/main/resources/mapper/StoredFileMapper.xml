@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.chengrui.st.mapper.StoredFileMapper">
+  <resultMap id="BaseResultMap" type="com.chengrui.st.entity.StoredFile">
+    <id column="id" jdbcType="BIGINT" property="id" />
+    <result column="file_name" jdbcType="VARCHAR" property="fileName" />
+    <result column="content_type" jdbcType="VARCHAR" property="contentType" />
+    <result column="file_data" jdbcType="LONGVARBINARY" property="fileData" />
+    <result column="create_time" jdbcType="TIMESTAMP" property="createTime" />
+  </resultMap>
+
+  <sql id="Base_Column_List">
+    id, file_name, content_type, file_data, create_time
+  </sql>
+
+  <select id="selectByPrimaryKey" parameterType="java.lang.Long" resultMap="BaseResultMap">
+    select
+    <include refid="Base_Column_List" />
+    from sh_file
+    where id = #{id,jdbcType=BIGINT}
+  </select>
+
+  <select id="selectByFileName" resultMap="BaseResultMap">
+    select
+    <include refid="Base_Column_List" />
+    from sh_file
+    where file_name = #{fileName,jdbcType=VARCHAR}
+    limit 1
+  </select>
+
+  <insert id="insert" keyColumn="id" keyProperty="id" parameterType="com.chengrui.st.entity.StoredFile" useGeneratedKeys="true">
+    insert into sh_file (file_name, content_type, file_data)
+    values (#{fileName,jdbcType=VARCHAR}, #{contentType,jdbcType=VARCHAR}, #{fileData,jdbcType=LONGVARBINARY})
+  </insert>
+</mapper>
