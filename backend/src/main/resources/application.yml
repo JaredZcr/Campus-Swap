@@ -2,7 +2,7 @@ spring:
   datasource:
     url: ${DB_URL:jdbc:mysql://localhost:3306/db_school_trade?characterEncoding=UTF-8&useUnicode=true&serverTimezone=UTC&allowPublicKeyRetrieval=true&useSSL=false}
     username: ${DB_USER:root}
-    password: ${DB_PASSWORD:Zcr20021226168}
+    password: ${DB_PASSWORD:zyxqir-Bytgud-2jybwe}
     driver-class-name: com.mysql.cj.jdbc.Driver
 
   servlet:

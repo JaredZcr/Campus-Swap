@@ -57,6 +57,7 @@ body {
   padding: 0.75rem 1.5rem;
   border: 2px solid var(--border);
   background: var(--bg-card);
+  color: var(--text-primary);
   border-radius: 12px;
   cursor: pointer;
   font-weight: 500;
@@ -110,15 +111,22 @@ body {
   border: 2px solid var(--border);
   border-radius: 8px;
   width: 100px;
+  background: var(--bg-card);
+  color: var(--text-primary);
   font-size: 0.9rem;
   font-family: 'DM Sans', sans-serif;
+}
+
+.price-input::placeholder {
+  color: var(--text-secondary);
 }
 
 .sort-dropdown {
   padding: 0.75rem 1.25rem;
   border: 2px solid var(--border);
   border-radius: 12px;
-  background: white;
+  background: var(--bg-card);
+  color: var(--text-primary);
   font-weight: 500;
   font-size: 0.95rem;
   cursor: pointer;
@@ -336,4 +344,3 @@ nav,
 nav * {
   font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif !important;
 }
-
