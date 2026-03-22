@@ -18,10 +18,7 @@ export function Navbar({ onSellClick, onHomeClick, onSearch, onNavigate, onLogin
       <div className="navbar_container">
         <div className="navbar_logo" onClick={onHomeClick}>
           <div className="navbar_logo-icon">
-            <svg width="24" height="24" viewBox="0 0 24 24" fill="none">
-              <rect x="3" y="3" width="18" height="18" rx="4" fill="currentColor"/>
-              <rect x="8" y="8" width="8" height="8" rx="1" fill="white"/>
-            </svg>
+            <img src="/nav_logo.png" alt="Campus Swap logo" className="navbar_logo-image" />
           </div>
           <span className="navbar_logo-text">Campus Swap</span>
         </div>
