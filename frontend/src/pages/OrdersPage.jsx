@@ -1,6 +1,7 @@
 import { useEffect, useState } from 'react';
 import { getMyOrders, getMySoldItems, updateOrder, payOrder } from '../api';
 import { getFirstPictureUrl } from '../utils/picture';
+import { deleteOrder } from '../api';
 import './OrdersPage.css';
 
 const STATUS_LABEL = { 0: 'Pending', 1: 'Confirmed', 2: 'Shipped', 3: 'Completed', 4: 'Cancelled' };
